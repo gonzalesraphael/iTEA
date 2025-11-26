@@ -36,7 +36,7 @@ export function Clarity() {
         (c[a].q = c[a].q || []).push(arguments);
       };
       const t = l.createElement(r) as HTMLScriptElement;
-      t.async = 1;
+      t.async = true;
       t.src = "https://www.clarity.ms/tag/" + i;
       const y = l.getElementsByTagName(r)[0];
       if (y && y.parentNode) {
