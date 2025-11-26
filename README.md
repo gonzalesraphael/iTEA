@@ -176,6 +176,137 @@ O app utiliza dados fictícios para demonstração:
 - Idioma: Português Brasileiro
 - Endereços: Formato brasileiro
 
+## 🚀 Deploy na Vercel
+
+### Pré-requisitos
+
+1. Conta na [Vercel](https://vercel.com)
+2. Conta no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+3. Git configurado no projeto
+
+### Passo a Passo
+
+#### 1. Preparar o Repositório
+
+```bash
+# Certifique-se de que o projeto está em um repositório Git
+git init  # se ainda não tiver
+git add .
+git commit -m "Preparar para deploy"
+```
+
+#### 2. Conectar com a Vercel
+
+**Opção A: Via CLI (Recomendado)**
+
+```bash
+# Instalar Vercel CLI globalmente
+npm i -g vercel
+
+# Fazer login
+vercel login
+
+# Deploy (primeira vez)
+vercel
+
+# Deploy de produção
+vercel --prod
+```
+
+**Opção B: Via Dashboard Web**
+
+1. Acesse [vercel.com](https://vercel.com)
+2. Clique em "Add New Project"
+3. Conecte seu repositório Git (GitHub, GitLab, Bitbucket)
+4. Configure o projeto:
+   - **Framework Preset**: Vite
+   - **Root Directory**: `.` (raiz do projeto)
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+
+#### 3. Configurar Variáveis de Ambiente
+
+Na Vercel, adicione as seguintes variáveis de ambiente:
+
+1. Acesse **Settings** → **Environment Variables**
+2. Adicione:
+
+```
+MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/?appName=Cluster0
+```
+
+**⚠️ Importante:**
+- Substitua `usuario` e `senha` pelas suas credenciais do MongoDB Atlas
+- Certifique-se de que o IP está liberado no MongoDB Atlas (ou use `0.0.0.0/0` para permitir qualquer IP)
+
+#### 4. Ajustar Nome do Banco de Dados
+
+O código está configurado para usar o banco `itea`. Se você quiser usar outro nome:
+
+1. Edite `api/mongo.js`
+2. Altere a linha: `const db = client.db("itea");`
+
+#### 5. Verificar Deploy
+
+Após o deploy, você receberá uma URL como:
+```
+https://seu-projeto.vercel.app
+```
+
+Teste os endpoints:
+- `https://seu-projeto.vercel.app/api/health` - Deve retornar `{"ok":true}`
+- `https://seu-projeto.vercel.app/api/users` - Lista de usuários (se houver)
+
+### Estrutura de API Routes
+
+O projeto usa serverless functions da Vercel:
+
+```
+api/
+├── mongo.js          # Conexão com MongoDB (cache)
+├── health.js         # GET /api/health
+├── users.js          # GET /api/users
+├── register.js       # POST /api/register
+├── login.js          # POST /api/login
+└── profile/
+    └── [email].js    # PUT /api/profile/:email
+```
+
+### Troubleshooting
+
+**Erro: "MONGO_URI não está definida"**
+- Verifique se a variável de ambiente `MONGO_URI` está configurada na Vercel
+- Certifique-se de que está configurada para todos os ambientes (Production, Preview, Development)
+
+**Erro: "Connection timeout"**
+- Verifique se o IP está liberado no MongoDB Atlas
+- Adicione `0.0.0.0/0` temporariamente para testar
+
+**Erro: "Build failed"**
+- Verifique os logs de build na Vercel
+- Certifique-se de que todas as dependências estão no `package.json`
+
+**API não funciona em produção**
+- Verifique se as rotas estão em `/api/`
+- Teste diretamente: `https://seu-projeto.vercel.app/api/health`
+
+### Comandos Úteis
+
+```bash
+# Ver logs do deploy
+vercel logs
+
+# Ver variáveis de ambiente
+vercel env ls
+
+# Adicionar variável de ambiente via CLI
+vercel env add MONGO_URI
+
+# Deploy apenas frontend (sem API)
+vercel --prod --force
+```
+
 ---
 
 **Desenvolvido com ❤️ para promover inclusão e acessibilidade**

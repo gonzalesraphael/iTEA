@@ -1,5 +1,11 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
+// API URL - usa relativa em produção, localhost em dev
+const API_URL =
+  import.meta.env.PROD
+    ? "/api"
+    : import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+
 interface User {
   id: string;
   nome: string;
@@ -24,7 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, senha: string): Promise<boolean> => {
     try {
-      const res = await fetch("http://localhost:4000/api/login", {
+      const res = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, senha }),
@@ -51,7 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     senha: string
   ): Promise<boolean> => {
     try {
-      const res = await fetch("http://localhost:4000/api/register", {
+      const res = await fetch(`${API_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, email, senha }),
@@ -80,7 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser((prev) => (prev ? { ...prev, ...partial } : prev));
     const email = partial.email || (user && user.email);
     if (email) {
-      fetch(`http://localhost:4000/api/profile/${encodeURIComponent(email)}`, {
+      fetch(`${API_URL}/profile/${encodeURIComponent(email)}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(partial),
