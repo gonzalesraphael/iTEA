@@ -15,7 +15,8 @@ O Microsoft Clarity é uma ferramenta gratuita de analytics e heatmaps que ajuda
    - **Industry**: Selecione a categoria apropriada
 5. Clique em **"Create"** ou **"Criar"**
 6. **Escolha a opção: "Instalar Manualmente"** ou **"Instalar Usando NPM"**
-7. Copie o **Project ID** que será exibido (é uma string alfanumérica)
+7. Copie o **Project ID** que será exibido no código (é uma string alfanumérica)
+   - Exemplo: `uc9w2ptauj` (este é o seu Project ID)
 
 ### 2. Configurar no Projeto
 
@@ -46,28 +47,64 @@ Este projeto usa a **instalação via React** (equivalente à opção NPM do Cla
 
 ### 3. Verificar se Está Funcionando
 
-1. **Faça deploy do projeto** (se ainda não fez)
-   ```bash
-   git add .
-   git commit -m "Adicionar Microsoft Clarity"
-   git push
-   ```
+#### ⏱️ Tempo de Processamento
 
-2. **Aguarde o deploy na Vercel** (1-2 minutos)
+**Importante:** O Clarity pode demorar para mostrar dados:
 
-3. **Acesse seu site** em produção: https://i-tea.vercel.app
+- **Primeira detecção**: 5-15 minutos após o primeiro acesso
+- **Dados básicos**: 30 minutos a 1 hora
+- **Heatmaps e gravações**: 2-4 horas após ter tráfego suficiente
+- **Insights completos**: 24-48 horas
 
-4. **No dashboard do Clarity:**
-   - Retorne ao painel do Clarity
-   - Clique em **"Verificar"** ou **"Verify"** (se disponível)
-   - Aguarde alguns minutos (pode levar até 1 hora)
-   - Você verá dados começando a aparecer
+Isso é normal! O Clarity precisa processar as sessões antes de exibir os dados.
 
-5. **Verificar no Console do Navegador (Opcional):**
-   - Abra o DevTools (F12)
-   - Vá em Console
-   - Você não deve ver avisos sobre Clarity não configurado
-   - Pode ver mensagens do Clarity carregando (normal)
+#### Verificação Imediata (Console do Navegador)
+
+1. **Acesse seu site em produção**: https://i-tea.vercel.app
+2. **Abra o DevTools** (F12 ou Ctrl+Shift+I)
+3. **Vá na aba Console**
+4. **Procure por:**
+   - ✅ **Bom sinal**: Mensagens do Clarity carregando (normal)
+   - ✅ **Bom sinal**: `clarity` disponível no objeto `window`
+   - ❌ **Problema**: Aviso sobre "Project ID não configurado"
+
+**Teste rápido no Console:**
+```javascript
+// Digite no console do navegador:
+window.clarity
+// Se retornar uma função ou objeto, o Clarity está carregado! ✅
+```
+
+#### Verificação no Dashboard do Clarity
+
+1. **Acesse**: [https://clarity.microsoft.com](https://clarity.microsoft.com)
+2. **Faça login** e selecione seu projeto
+3. **Procure por:**
+   - Status de instalação (pode mostrar "Verificando..." inicialmente)
+   - Contador de sessões (pode estar em 0 inicialmente)
+   - Mensagem "Aguardando dados" (normal nas primeiras horas)
+
+#### O que Esperar
+
+**Primeiras 15-30 minutos:**
+- Status pode mostrar "Verificando instalação"
+- Contador de sessões pode estar em 0
+- Isso é normal!
+
+**Após 30 minutos - 1 hora:**
+- Primeiras sessões começam a aparecer
+- Contador de sessões aumenta
+- Status muda para "Ativo"
+
+**Após 2-4 horas:**
+- Heatmaps começam a aparecer
+- Gravações de sessão ficam disponíveis
+- Insights básicos aparecem
+
+**Após 24-48 horas:**
+- Dados completos disponíveis
+- Análises mais detalhadas
+- Padrões de comportamento visíveis
 
 ## 📋 O que o Clarity Rastreia
 
