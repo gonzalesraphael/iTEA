@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import logoImg from "figma:asset/8baca510f2477a2631aa8dc6d767228268d35413.png";
+import logoImg from "/logo.png";
 
 interface AnimatedLogoProps {
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
@@ -45,7 +45,7 @@ export function AnimatedLogo({
     transition: {
       duration: 2,
       repeat: 3,
-      ease: "easeInOut"
+      ease: "easeInOut" as const
     }
   } : {};
 

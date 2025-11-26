@@ -26,8 +26,8 @@ type Page =
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
 
-  const navigate = (page: Page) => {
-    setCurrentPage(page);
+  const navigate = (page: Page | string) => {
+    setCurrentPage(page as Page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
