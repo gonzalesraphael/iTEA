@@ -225,20 +225,43 @@ vercel --prod
    - **Output Directory**: `dist`
    - **Install Command**: `npm install`
 
-#### 3. Configurar Variáveis de Ambiente
+#### 3. Configurar Variáveis de Ambiente ⚠️ **OBRIGATÓRIO**
 
-Na Vercel, adicione as seguintes variáveis de ambiente:
+**Este passo é ESSENCIAL! Sem isso, a API não funcionará e você receberá erro 500.**
+
+Na Vercel, adicione a variável de ambiente `MONGO_URI`:
 
 1. Acesse **Settings** → **Environment Variables**
-2. Adicione:
+2. Clique em **Add New**
+3. Preencha:
+   - **Key**: `MONGO_URI`
+   - **Value**: Sua connection string do MongoDB Atlas
+     ```
+     mongodb+srv://usuario:senha@cluster.mongodb.net/?appName=Cluster0
+     ```
+   - **Environments**: Marque TODAS as opções:
+     - ✅ Production
+     - ✅ Preview
+     - ✅ Development
+4. Clique em **Save**
 
-```
-MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/?appName=Cluster0
-```
+**Como obter a Connection String:**
+1. Acesse [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Clique em **Connect** no seu cluster
+3. Selecione **Connect your application**
+4. Copie a connection string
+5. Substitua `<password>` pela sua senha real
+6. Substitua `<username>` pelo seu usuário
 
 **⚠️ Importante:**
-- Substitua `usuario` e `senha` pelas suas credenciais do MongoDB Atlas
-- Certifique-se de que o IP está liberado no MongoDB Atlas (ou use `0.0.0.0/0` para permitir qualquer IP)
+- Substitua `usuario` e `senha` pelas suas credenciais reais do MongoDB Atlas
+- Certifique-se de que o IP está liberado no MongoDB Atlas:
+  - Vá em **Network Access** no MongoDB Atlas
+  - Clique em **Add IP Address**
+  - Selecione **Allow Access from Anywhere** (ou adicione `0.0.0.0/0`)
+- **Após adicionar a variável, faça um REDEPLOY** (Deployments → ⋯ → Redeploy)
+
+📖 **Guia completo**: Veja `CONFIGURAR_VERCEL.md` para instruções detalhadas
 
 #### 4. Ajustar Nome do Banco de Dados
 

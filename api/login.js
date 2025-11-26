@@ -28,7 +28,16 @@ module.exports = async (req, res) => {
       delete user.senha;
       res.status(200).json(user);
     } catch (err) {
-      res.status(500).json({ error: "Erro interno", details: String(err) });
+      console.error("Erro no login:", err);
+      const errorMessage = err.message || String(err);
+      // Não expor detalhes sensíveis em produção
+      const isMongoError = errorMessage.includes("MONGO_URI") || errorMessage.includes("connection");
+      res.status(500).json({ 
+        error: isMongoError 
+          ? "Erro de configuração do servidor. Contate o administrador." 
+          : "Erro interno", 
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+      });
     }
   } else {
     res.status(405).json({ error: "Method not allowed" });
