@@ -12,6 +12,7 @@ import { ComunidadesPage } from "./pages/ComunidadesPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { Toaster } from "./components/ui/sonner";
 import { ChatBot } from "./components/ChatBot";
+import { Clarity } from "./components/Clarity";
 
 type Page =
   | "home"
@@ -33,6 +34,7 @@ export default function App() {
 
   return (
     <AuthProvider>
+      <Clarity />
       <div className="min-h-screen">
         {/* Navegação superior - não mostrar em páginas de login/cadastro */}
         {currentPage !== "login" && currentPage !== "cadastro" && (
