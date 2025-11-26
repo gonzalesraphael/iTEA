@@ -279,7 +279,10 @@ https://seu-projeto.vercel.app
 
 Teste os endpoints:
 - `https://seu-projeto.vercel.app/api/health` - Deve retornar `{"ok":true}`
+- `https://seu-projeto.vercel.app/api/test-connection` - Testa conexão com MongoDB (diagnóstico)
 - `https://seu-projeto.vercel.app/api/users` - Lista de usuários (se houver)
+
+**💡 Dica:** Se tiver problemas de conexão, use `/api/test-connection` para diagnosticar!
 
 ### Estrutura de API Routes
 

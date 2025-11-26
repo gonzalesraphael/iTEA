@@ -28,15 +28,27 @@ module.exports = async (req, res) => {
       delete user.senha;
       res.status(200).json(user);
     } catch (err) {
-      console.error("Erro no login:", err);
+      console.error("❌ Erro no login:", err);
       const errorMessage = err.message || String(err);
-      // Não expor detalhes sensíveis em produção
-      const isMongoError = errorMessage.includes("MONGO_URI") || errorMessage.includes("connection");
+      
+      // Log detalhado para debug
+      console.error("Tipo do erro:", err.name);
+      console.error("Mensagem:", errorMessage);
+      
+      // Retornar mensagem mais útil em produção
+      const isMongoError = errorMessage.includes("MONGO_URI") || 
+                          errorMessage.includes("connection") || 
+                          errorMessage.includes("authentication") ||
+                          errorMessage.includes("timeout");
+      
       res.status(500).json({ 
         error: isMongoError 
-          ? "Erro de configuração do servidor. Contate o administrador." 
-          : "Erro interno", 
-        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+          ? "Erro de conexão com o banco de dados. Verifique a configuração." 
+          : "Erro interno ao processar login", 
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined,
+        hint: isMongoError 
+          ? "Teste o endpoint /api/test-connection para diagnosticar o problema"
+          : undefined
       });
     }
   } else {

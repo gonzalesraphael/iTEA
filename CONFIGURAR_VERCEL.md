@@ -144,15 +144,89 @@ Antes de testar, verifique:
 - [ ] Redeploy feito após configurar a variável
 - [ ] Teste o endpoint `/api/health` primeiro
 
+## 🔍 Diagnosticar Problemas de Conexão
+
+Se você configurou tudo mas ainda não funciona, use o endpoint de teste:
+
+### Teste de Conexão
+
+Acesse no navegador ou faça uma requisição GET para:
+```
+https://i-tea.vercel.app/api/test-connection
+```
+
+Este endpoint vai:
+- ✅ Verificar se `MONGO_URI` está configurada
+- ✅ Tentar conectar ao MongoDB
+- ✅ Listar as coleções disponíveis
+- ✅ Contar usuários no banco
+- ❌ Mostrar erros detalhados se houver problema
+
+### Possíveis Problemas e Soluções
+
+#### 1. Erro: "MONGO_URI não está definida"
+**Solução:**
+- Verifique se a variável está salva na Vercel
+- Certifique-se de que marcou **Production** ao adicionar
+- Faça um **redeploy** após adicionar
+
+#### 2. Erro: "Falha na autenticação"
+**Solução:**
+- Verifique se a senha na connection string está correta
+- A senha pode ter caracteres especiais que precisam ser codificados (URL encoded)
+- Tente criar um novo usuário no MongoDB Atlas com senha simples
+
+#### 3. Erro: "Timeout na conexão"
+**Solução:**
+- Verifique se `0.0.0.0/0` está no Network Access
+- Aguarde alguns minutos após adicionar o IP (pode levar até 5 minutos)
+- Tente remover e readicionar o IP
+
+#### 4. Erro: "Database name not found"
+**Solução:**
+- O código usa o banco `itea` por padrão
+- Se você quer usar outro nome, edite `api/mongo.js`:
+  ```javascript
+  const db = client.db("seu-banco-aqui");
+  ```
+- Ou adicione o nome do banco na connection string:
+  ```
+  mongodb+srv://...@cluster.mongodb.net/itea?appName=Cluster0
+  ```
+
+#### 5. Connection String com Caracteres Especiais
+Se sua senha tem caracteres especiais (`@`, `#`, `%`, etc.), você precisa codificá-los:
+- `@` → `%40`
+- `#` → `%23`
+- `%` → `%25`
+- `&` → `%26`
+
+Ou use uma senha sem caracteres especiais no MongoDB Atlas.
+
+### Verificar Logs na Vercel
+
+1. Acesse seu projeto na Vercel
+2. Vá em **Deployments**
+3. Clique no último deployment
+4. Vá em **Functions** → Clique na função que falhou (ex: `api/login`)
+5. Veja os **Logs** - lá você verá mensagens detalhadas como:
+   - `🔌 Tentando conectar ao MongoDB...`
+   - `✅ Conectado ao MongoDB!`
+   - `❌ Erro ao conectar...`
+
 ## 🎯 Próximos Passos
 
-Após configurar:
+Após configurar e testar:
 
-1. Teste o login na aplicação
-2. Teste o cadastro de novos usuários
-3. Verifique se os dados estão sendo salvos no MongoDB Atlas
+1. ✅ Teste o endpoint: `https://i-tea.vercel.app/api/test-connection`
+2. ✅ Se o teste passar, teste o login na aplicação
+3. ✅ Teste o cadastro de novos usuários
+4. ✅ Verifique se os dados estão sendo salvos no MongoDB Atlas
 
 ---
 
-**Dúvidas?** Verifique os logs na Vercel: Deployments → Clique no deployment → Functions → Veja os logs
+**Dúvidas?** 
+- Verifique os logs na Vercel: Deployments → Functions → Logs
+- Use o endpoint `/api/test-connection` para diagnosticar
+- Verifique se a connection string está correta (sem espaços, com senha substituída)
 
