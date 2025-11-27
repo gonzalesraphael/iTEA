@@ -20,7 +20,15 @@ O Microsoft Clarity é uma ferramenta gratuita de analytics e heatmaps que ajuda
 
 ### 2. Configurar no Projeto
 
-Este projeto usa a **instalação via React** (equivalente à opção NPM do Clarity), que é mais adequada para projetos React.
+Este projeto usa a **instalação via NPM** do Clarity, que é a abordagem recomendada para apps React porque mantém o carregamento dentro do ciclo de vida do React e facilita o uso de variáveis de ambiente.
+
+#### Instalar Dependência
+
+```bash
+npm install @microsoft/clarity
+```
+
+O componente `components/Clarity.tsx` importa a biblioteca e chama `clarity.init(<PROJECT_ID>)` assim que a aplicação é carregada.
 
 #### Configurar Variável de Ambiente
 

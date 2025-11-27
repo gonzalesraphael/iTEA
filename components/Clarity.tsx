@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import clarity from "@microsoft/clarity";
 
 /**
  * Componente para integrar Microsoft Clarity
@@ -15,13 +16,8 @@ import { useEffect } from "react";
  */
 export function Clarity() {
   useEffect(() => {
-    // Verifica se já foi carregado (evita duplicação)
-    if ((window as any).clarity) {
-      return;
-    }
-
     const projectId = import.meta.env.VITE_CLARITY_PROJECT_ID;
-    
+
     if (!projectId) {
       if (import.meta.env.PROD) {
         console.warn("Microsoft Clarity: Project ID não configurado. Configure VITE_CLARITY_PROJECT_ID");
@@ -29,20 +25,13 @@ export function Clarity() {
       return;
     }
 
-    // Carrega o script do Clarity dinamicamente
-    // Este é o código oficial fornecido pelo Microsoft Clarity
-    (function(c: any, l: Document, a: string, r: string, i: string) {
-      c[a] = c[a] || function() {
-        (c[a].q = c[a].q || []).push(arguments);
-      };
-      const t = l.createElement(r) as HTMLScriptElement;
-      t.async = true;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      const y = l.getElementsByTagName(r)[0];
-      if (y && y.parentNode) {
-        y.parentNode.insertBefore(t, y);
-      }
-    })(window, document, "clarity", "script", projectId);
+    // Evita inicializar mais de uma vez
+    if ((window as any).__CLARITY_INITIALIZED__) {
+      return;
+    }
+
+    clarity.init(projectId);
+    (window as any).__CLARITY_INITIALIZED__ = true;
   }, []);
 
   return null;
