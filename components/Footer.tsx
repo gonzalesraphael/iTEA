@@ -35,21 +35,21 @@ export function Footer() {
     <footer id="contact" className="bg-gray-900 text-white">
       <div className="container mx-auto max-w-7xl px-6">
         {/* Newsletter Section */}
-        <div className="py-12 border-b border-gray-800">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="py-8 sm:py-12 border-b border-gray-800">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
-              <h3 className="text-2xl mb-2">Mantenha-se Conectado</h3>
-              <p className="text-gray-400">
+              <h3 className="text-xl sm:text-2xl mb-2 font-semibold">Mantenha-se Conectado</h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 Inscreva-se em nossa newsletter para atualizações, recursos e histórias de nossa comunidade.
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Input 
                 type="email" 
                 placeholder="Digite seu e-mail" 
-                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 w-full"
               />
-              <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap">
+              <Button className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap w-full sm:w-auto">
                 Inscrever
               </Button>
             </div>
@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         {/* Main Footer Content */}
-        <div className="py-12 grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="py-8 sm:py-12 grid sm:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -142,11 +142,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400">
+        <div className="py-4 sm:py-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="text-sm sm:text-base text-gray-400 order-3 md:order-1">
             © 2025 ITEA. Todos os direitos reservados.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 order-1 md:order-2">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
               <Facebook className="h-5 w-5" />
             </a>
@@ -160,11 +160,11 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
           </div>
-          <div className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 order-2 md:order-3">
+            <a href="#" className="text-sm sm:text-base text-gray-400 hover:text-white transition-colors">
               Política de Privacidade
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            <a href="#" className="text-sm sm:text-base text-gray-400 hover:text-white transition-colors">
               Termos de Uso
             </a>
           </div>

@@ -152,9 +152,9 @@ export function ChatBot() {
       {/* Botão Flutuante (FAB) */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-40 
+        className="fixed bottom-24 sm:bottom-20 md:bottom-8 right-4 sm:right-6 md:right-8 z-40 
                    bg-gradient-to-r from-blue-500 via-green-500 to-blue-600
-                   text-white rounded-full p-4 shadow-lg
+                   text-white rounded-full p-3 sm:p-4 shadow-lg
                    hover:shadow-xl transition-shadow
                    focus:outline-none focus:ring-4 focus:ring-blue-300"
         whileHover={{ scale: 1.1 }}
@@ -195,9 +195,9 @@ export function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 right-4 md:bottom-8 md:right-8 z-50
-                       w-[calc(100vw-2rem)] md:w-[380px]
-                       h-[calc(100vh-10rem)] md:h-[600px]
+            className="fixed bottom-24 sm:bottom-20 md:bottom-8 right-2 sm:right-4 md:right-8 z-50
+                       w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] md:w-[380px] max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-2rem)] md:max-w-[380px]
+                       h-[calc(100vh-7rem)] sm:h-[calc(100vh-10rem)] md:h-[600px] max-h-[calc(100vh-7rem)] sm:max-h-[calc(100vh-10rem)] md:max-h-[600px]
                        bg-white rounded-2xl shadow-2xl
                        flex flex-col overflow-hidden
                        border-2 border-blue-100"

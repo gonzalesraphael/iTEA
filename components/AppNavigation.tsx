@@ -45,8 +45,8 @@ export function AppNavigation({ onNavigate, currentPage }: AppNavigationProps) {
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto max-w-7xl px-6">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <ITEALogoCompact
             onClick={() => onNavigate(user ? "dashboard" : "home")}
@@ -147,7 +147,7 @@ export function AppNavigation({ onNavigate, currentPage }: AppNavigationProps) {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-6 space-y-4">
+          <div className="md:hidden pb-4 sm:pb-6 space-y-3 sm:space-y-4 pt-4 border-t border-gray-200">
             {!user && currentPage === "home" && (
               <>
                 {navItemsPublic.map((item) => (

@@ -5,9 +5,9 @@ import { ITEALogo } from "./ITEALogo";
 
 export function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 px-6 md:py-32">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-20 px-4 sm:px-6 md:py-32">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div 
             className="space-y-6"
             initial={{ opacity: 0, x: -20 }}
@@ -19,34 +19,34 @@ export function Hero() {
                 Construindo Compreensão Juntos
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl text-gray-900">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl text-gray-900 font-bold">
               ITEA
             </h1>
-            <p className="text-xl text-gray-600 max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xl">
               Capacitando indivíduos com autismo e suas famílias através de apoio, 
               educação e aconselhamento por um mundo mais inclusivo.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">
                 Obter Apoio
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto">
                 <Heart className="mr-2 h-5 w-5" />
                 Doe Agora
               </Button>
             </div>
-            <div className="pt-8 grid grid-cols-3 gap-6 border-t border-gray-200">
-              <div>
-                <div className="text-3xl text-blue-600">X.0K+</div>
-                <div className="text-gray-600 mt-1">Famílias Atendidas</div>
+            <div className="pt-6 sm:pt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 border-t border-gray-200">
+              <div className="text-center sm:text-left">
+                <div className="text-2xl sm:text-3xl text-blue-600 font-semibold">X.0K+</div>
+                <div className="text-sm sm:text-base text-gray-600 mt-1">Famílias Atendidas</div>
               </div>
-              <div>
-                <div className="text-3xl text-purple-600">X.0+</div>
-                <div className="text-gray-600 mt-1">Programas</div>
+              <div className="text-center sm:text-left">
+                <div className="text-2xl sm:text-3xl text-purple-600 font-semibold">X.0+</div>
+                <div className="text-sm sm:text-base text-gray-600 mt-1">Programas</div>
               </div>
-              <div>
-                <div className="text-3xl text-teal-600">X.0+</div>
-                <div className="text-gray-600 mt-1">Profissionais</div>
+              <div className="text-center sm:text-left">
+                <div className="text-2xl sm:text-3xl text-teal-600 font-semibold">X.0+</div>
+                <div className="text-sm sm:text-base text-gray-600 mt-1">Profissionais</div>
               </div>
             </div>
           </motion.div>

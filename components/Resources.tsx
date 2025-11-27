@@ -59,27 +59,27 @@ export function Resources() {
   ];
 
   return (
-    <section id="resources" className="py-20 px-6 bg-white">
+    <section id="resources" className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-blue-600 tracking-wide uppercase">Recursos</span>
-          <h2 className="text-4xl md:text-5xl text-gray-900 mt-4 mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+          <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Recursos</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">
             Conhecimento & Apoio
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
             Acesse materiais educacionais, vídeos e eventos para apoiar sua jornada.
           </p>
         </div>
 
         <Tabs defaultValue="guides" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12">
-            <TabsTrigger value="guides">Guias & Artigos</TabsTrigger>
-            <TabsTrigger value="videos">Vídeos</TabsTrigger>
-            <TabsTrigger value="events">Eventos</TabsTrigger>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-6 sm:mb-12 h-auto">
+            <TabsTrigger value="guides" className="text-xs sm:text-sm py-2 sm:py-3">Guias & Artigos</TabsTrigger>
+            <TabsTrigger value="videos" className="text-xs sm:text-sm py-2 sm:py-3">Vídeos</TabsTrigger>
+            <TabsTrigger value="events" className="text-xs sm:text-sm py-2 sm:py-3">Eventos</TabsTrigger>
           </TabsList>
 
           <TabsContent value="guides">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {guides.map((guide, index) => (
                 <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
                   <CardHeader>
@@ -173,18 +173,18 @@ export function Resources() {
         </Tabs>
 
         {/* Contact Card */}
-        <div className="mt-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white text-center">
-          <Phone className="h-12 w-12 mx-auto mb-4" />
-          <h3 className="text-3xl mb-4">Precisa de Apoio Imediato?</h3>
-          <p className="text-xl mb-6 text-blue-100 max-w-2xl mx-auto">
+        <div className="mt-12 sm:mt-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-6 sm:p-8 md:p-12 text-white text-center">
+          <Phone className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-3 sm:mb-4" />
+          <h3 className="text-2xl sm:text-3xl mb-3 sm:mb-4 font-bold">Precisa de Apoio Imediato?</h3>
+          <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-blue-100 max-w-2xl mx-auto px-4">
             Nossa linha de apoio está disponível de segunda a sexta, das 9h às 17h. 
             Estamos aqui para responder perguntas e conectá-lo com recursos.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" variant="secondary">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Ligar: (11) 1234-5678
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 w-full sm:w-auto">
               Enviar E-mail
             </Button>
           </div>

@@ -44,20 +44,20 @@ export function GetInvolved() {
   ];
 
   return (
-    <section id="get-involved" className="py-20 px-6 bg-gray-50">
+    <section id="get-involved" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-blue-600 tracking-wide uppercase">Participe</span>
-          <h2 className="text-4xl md:text-5xl text-gray-900 mt-4 mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
+          <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Participe</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">
             Faça a Diferença Hoje
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
             Existem muitas maneiras de apoiar nossa missão e ajudar a criar um mundo mais inclusivo 
             para indivíduos com autismo.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-16">
           {ways.map((way, index) => (
             <Card key={index} className="border-none shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
@@ -81,27 +81,27 @@ export function GetInvolved() {
         {/* Featured Campaign */}
         <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
           <div className="grid md:grid-cols-2 gap-0">
-            <div className="h-full min-h-[400px]">
+            <div className="h-64 sm:h-80 md:h-full md:min-h-[400px] order-1">
               <ImageWithFallback
                 src="https://s2-redeglobo.glbimg.com/8tiLfpEPY7kBUqIlAPRS-TQ11RI=/0x0:700x437/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b58693ed41d04a39826739159bf600a0/internal_photos/bs/2020/R/5/8RCdo6RUSOt6VZqvJn3w/crianca-esperanca-globo.jpg"
                 alt="Apoio comunitário"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="text-blue-600 tracking-wide uppercase mb-4">Campanha Anual</span>
-              <h3 className="text-3xl text-gray-900 mb-4">
+            <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center order-2">
+              <span className="text-blue-600 tracking-wide uppercase mb-3 sm:mb-4 text-sm sm:text-base">Campanha Anual</span>
+              <h3 className="text-2xl sm:text-3xl text-gray-900 mb-3 sm:mb-4 font-bold">
                 Construindo Esperança Juntos
               </h3>
-              <p className="text-gray-700 mb-6">
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6">
                 Nossa campanha anual de arrecadação apoia programas e serviços críticos para famílias 
                 afetadas pelo autismo. Este ano, estamos arrecadando fundos para expandir nossos serviços 
                 de intervenção precoce e lançar novos grupos de apoio em comunidades carentes.
               </p>
-              <div className="bg-gray-50 rounded-xl p-6 mb-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-700">Progresso da Campanha</span>
-                  <span className="text-gray-900">R$ 375.000 de R$ 500.000</span>
+              <div className="bg-gray-50 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 gap-2">
+                  <span className="text-sm sm:text-base text-gray-700">Progresso da Campanha</span>
+                  <span className="text-sm sm:text-base text-gray-900 font-semibold">R$ 375.000 de R$ 500.000</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <div 
@@ -109,9 +109,9 @@ export function GetInvolved() {
                     style={{ width: '75%' }}
                   ></div>
                 </div>
-                <p className="text-gray-600 mt-2">75% da meta alcançada</p>
+                <p className="text-sm sm:text-base text-gray-600 mt-2">75% da meta alcançada</p>
               </div>
-              <Button size="lg" className="w-fit bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className="w-full sm:w-fit bg-blue-600 hover:bg-blue-700">
                 <Heart className="mr-2 h-5 w-5" />
                 Apoie Esta Campanha
               </Button>
@@ -120,24 +120,24 @@ export function GetInvolved() {
         </div>
 
         {/* Impact Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-3xl text-gray-900 mb-8">Seu Impacto</h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-4xl text-blue-600 mb-2">R$ 50</div>
-              <div className="text-gray-700">Fornece materiais educacionais para uma família</div>
+        <div className="mt-12 sm:mt-16 text-center">
+          <h3 className="text-2xl sm:text-3xl text-gray-900 mb-6 sm:mb-8 font-bold">Seu Impacto</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+              <div className="text-3xl sm:text-4xl text-blue-600 mb-2 font-bold">R$ 50</div>
+              <div className="text-sm sm:text-base text-gray-700">Fornece materiais educacionais para uma família</div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-4xl text-purple-600 mb-2">R$ 150</div>
-              <div className="text-gray-700">Patrocina uma sessão de terapia</div>
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+              <div className="text-3xl sm:text-4xl text-purple-600 mb-2 font-bold">R$ 150</div>
+              <div className="text-sm sm:text-base text-gray-700">Patrocina uma sessão de terapia</div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-4xl text-teal-600 mb-2">R$ 500</div>
-              <div className="text-gray-700">Apoia uma semana de colônia de férias</div>
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+              <div className="text-3xl sm:text-4xl text-teal-600 mb-2 font-bold">R$ 500</div>
+              <div className="text-sm sm:text-base text-gray-700">Apoia uma semana de colônia de férias</div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-4xl text-orange-600 mb-2">R$ 1.000</div>
-              <div className="text-gray-700">Financia um grupo de apoio por 3 meses</div>
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm">
+              <div className="text-3xl sm:text-4xl text-orange-600 mb-2 font-bold">R$ 1.000</div>
+              <div className="text-sm sm:text-base text-gray-700">Financia um grupo de apoio por 3 meses</div>
             </div>
           </div>
         </div>

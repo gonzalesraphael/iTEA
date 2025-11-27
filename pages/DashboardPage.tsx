@@ -61,18 +61,18 @@ export function DashboardPage({ onNavigate }: DashboardPageProps) {
         <WelcomeModal userName={user.nome} onClose={handleCloseWelcome} />
       )}
 
-      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8 md:py-12">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 md:py-12">
         {/* Cabeçalho */}
-        <div className="mb-8 md:mb-12 space-y-3 md:space-y-4">
-          <h1 className="text-gray-900">Bem-vindo ao ITEA</h1>
-          <p className="text-gray-600 max-w-2xl">
+        <div className="mb-6 sm:mb-8 md:mb-12 space-y-2 sm:space-y-3 md:space-y-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-bold">Bem-vindo ao ITEA</h1>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl">
             Explore estabelecimentos acessíveis, eventos inclusivos e
             comunidades de apoio. Escolha uma opção abaixo para começar.
           </p>
         </div>
 
         {/* Cards principais */}
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 md:mb-12">
           {cards.map((card) => {
             const Icon = card.icon;
             return (
@@ -99,24 +99,24 @@ export function DashboardPage({ onNavigate }: DashboardPageProps) {
         </div>
 
         {/* Seção de estatísticas */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <h3 className="text-gray-900 mb-6">Impacto da nossa comunidade</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="space-y-2">
-              <div className="text-blue-600">XX.000+</div>
-              <p className="text-gray-600">Famílias atendidas</p>
+        <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
+          <h3 className="text-xl sm:text-2xl text-gray-900 mb-4 sm:mb-6 font-bold">Impacto da nossa comunidade</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <div className="text-2xl sm:text-3xl text-blue-600 font-bold">XX.000+</div>
+              <p className="text-sm sm:text-base text-gray-600">Famílias atendidas</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-green-600">XX+</div>
-              <p className="text-gray-600">Estabelecimentos parceiros</p>
+            <div className="space-y-2 text-center md:text-left">
+              <div className="text-2xl sm:text-3xl text-green-600 font-bold">XX+</div>
+              <p className="text-sm sm:text-base text-gray-600">Estabelecimentos parceiros</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-orange-600">XX+</div>
-              <p className="text-gray-600">Eventos realizados</p>
+            <div className="space-y-2 text-center md:text-left">
+              <div className="text-2xl sm:text-3xl text-orange-600 font-bold">XX+</div>
+              <p className="text-sm sm:text-base text-gray-600">Eventos realizados</p>
             </div>
-            <div className="space-y-2">
-              <div className="text-purple-600">XX+</div>
-              <p className="text-gray-600">Comunidades ativas</p>
+            <div className="space-y-2 text-center md:text-left">
+              <div className="text-2xl sm:text-3xl text-purple-600 font-bold">XX+</div>
+              <p className="text-sm sm:text-base text-gray-600">Comunidades ativas</p>
             </div>
           </div>
         </div>
