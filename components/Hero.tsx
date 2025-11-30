@@ -47,14 +47,12 @@ export function Hero() {
       <div className="container mx-auto max-w-7xl w-full">
         <div className="flex flex-col items-center w-full">
           <div className="relative flex items-center justify-center w-full overflow-hidden mb-4 sm:mb-6">
-            <div className="relative p-2 sm:p-4 md:p-8 w-full max-w-full flex justify-center">
-              <div className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[600px] aspect-square">
-                <ITEALogo
-                  size="hero"
-                  animated={true}
-                  className="w-full h-full"
-                />
-              </div>
+            <div className="relative p-2 sm:p-4 md:p-6 lg:p-8 w-full flex justify-center">
+              <ITEALogo
+                size="hero"
+                animated={true}
+                className=""
+              />
             </div>
           </div>
           <motion.div 

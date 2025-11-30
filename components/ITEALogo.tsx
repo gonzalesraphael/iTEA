@@ -22,6 +22,16 @@ export function ITEALogo({
   };
 
   const { width, height } = sizeMap[size];
+  
+  // Classes responsivas: max-width apenas no mobile para evitar overflow
+  const responsiveClasses = {
+    sm: "",
+    md: "max-w-[85vw] sm:max-w-none",
+    lg: "max-w-[85vw] sm:max-w-none",
+    xl: "max-w-[85vw] sm:max-w-none",
+    "2xl": "max-w-[85vw] sm:max-w-none",
+    hero: "max-w-[85vw] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[600px]"
+  };
 
   // Variantes de animação para cada elemento
   const containerVariants = {
@@ -62,12 +72,12 @@ export function ITEALogo({
 
   const LogoContent = (
     <svg
-      width="100%"
-      height="100%"
+      width={width}
+      height={height}
       viewBox="0 0 500 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`h-auto ${responsiveClasses[size]} ${className}`}
       preserveAspectRatio="xMidYMid meet"
     >
       {/* Fundo com gradiente suave */}
@@ -289,7 +299,7 @@ export function ITEALogo({
         </motion.g>
       </g>
 
-      {/* Texto "ITEA" */}
+      {/* Texto "iTEA" */}
       <motion.text
         x="250"
         y="435"
@@ -300,7 +310,7 @@ export function ITEALogo({
         fontFamily="system-ui, -apple-system, sans-serif"
         variants={animated ? textVariants : {}}
       >
-        ITEA
+        iTEA
       </motion.text>
 
       {/* Subtítulo */}
@@ -312,10 +322,10 @@ export function ITEALogo({
         fontSize="20"
         fontWeight="600"
         fontFamily="system-ui, -apple-system, sans-serif"
-        letterSpacing="3"
+        letterSpacing="1"
         variants={animated ? textVariants : {}}
       >
-        JUNTOS PELA INCLUSÃO
+        Conectando pessoas, acolhendo trajetórias
       </motion.text>
     </svg>
   );
