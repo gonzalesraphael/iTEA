@@ -10,6 +10,10 @@ import { EstabelecimentosPage } from "./pages/EstabelecimentosPage";
 import { EventosPage } from "./pages/EventosPage";
 import { ComunidadesPage } from "./pages/ComunidadesPage";
 import { ProfilePage } from "./pages/ProfilePage";
+import { ServicosPage } from "./pages/ServicoPage";
+import { ServicoCatalogoPage } from "./pages/ServicoCatalogoPage";
+import { RecursosPage } from "./pages/RecursosPage";
+import { FacaDiferencaPage } from "./pages/FacaDiferencaPage";
 import { Toaster } from "./components/ui/sonner";
 import { ChatBot } from "./components/ChatBot";
 import { Clarity } from "./components/Clarity";
@@ -22,7 +26,14 @@ type Page =
   | "estabelecimentos"
   | "eventos"
   | "comunidades"
-  | "profile";
+  | "profile"
+  | "servicos"
+  | "recursos"
+  | "faca-diferenca"
+  | "intervencao-precoce"
+  | "apoio-educacional"
+  | "servicos-comportamentais"
+  | "servicos-transicao";
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
@@ -38,7 +49,14 @@ function AppContent() {
     currentPage === "dashboard" ||
     currentPage === "estabelecimentos" ||
     currentPage === "eventos" ||
-    currentPage === "comunidades"
+    currentPage === "comunidades" ||
+    currentPage === "servicos" ||
+    currentPage === "recursos" ||
+    currentPage === "faca-diferenca" ||
+    currentPage === "intervencao-precoce" ||
+    currentPage === "apoio-educacional" ||
+    currentPage === "servicos-comportamentais" ||
+    currentPage === "servicos-transicao"
   );
 
   return (
@@ -64,6 +82,21 @@ function AppContent() {
             <ComunidadesPage onNavigate={navigate} />
           )}
           {currentPage === "profile" && <ProfilePage onNavigate={navigate} />}
+          {currentPage === "servicos" && <ServicosPage onNavigate={navigate} />}
+          {currentPage === "recursos" && <RecursosPage onNavigate={navigate} />}
+          {currentPage === "faca-diferenca" && <FacaDiferencaPage onNavigate={navigate} />}
+          {currentPage === "intervencao-precoce" && (
+            <ServicoCatalogoPage categoria="intervencao-precoce" onNavigate={navigate} />
+          )}
+          {currentPage === "apoio-educacional" && (
+            <ServicoCatalogoPage categoria="apoio-educacional" onNavigate={navigate} />
+          )}
+          {currentPage === "servicos-comportamentais" && (
+            <ServicoCatalogoPage categoria="servicos-comportamentais" onNavigate={navigate} />
+          )}
+          {currentPage === "servicos-transicao" && (
+            <ServicoCatalogoPage categoria="servicos-transicao" onNavigate={navigate} />
+          )}
         </div>
 
         {/* Navegação inferior mobile */}
