@@ -68,8 +68,8 @@ export function ComunidadesPage({ onNavigate }: ComunidadesPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8 w-full">
         <div className="mb-6">
           <Button
             variant="ghost"

@@ -42,8 +42,8 @@ export function EventosPage({ onNavigate }: EventosPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-8 w-full">
         <div className="mb-6">
           <Button
             variant="ghost"
@@ -63,7 +63,7 @@ export function EventosPage({ onNavigate }: EventosPageProps) {
             <Card key={evento.id} className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row gap-6">
-                  <div className="bg-green-100 p-6 rounded-xl flex flex-col items-center justify-center min-w-[120px]">
+                  <div className="bg-green-100 p-4 sm:p-6 rounded-xl flex flex-col items-center justify-center w-full md:w-auto md:min-w-[120px]">
                     <Calendar className="h-8 w-8 text-green-600 mb-2" />
                     <div className="text-center">
                       <div className="text-green-700">{evento.data.split(" de ")[0]}</div>

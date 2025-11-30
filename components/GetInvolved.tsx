@@ -4,12 +4,23 @@ import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function GetInvolved() {
-  const ways = [
+  const handleDoar = () => {
+    window.open("https://doacoes.criancaesperanca.unesco.org/", "_blank", "noopener,noreferrer");
+  };
+
+  const ways: Array<{
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    description: string;
+    action: string;
+    onClick?: () => void;
+  }> = [
     {
       icon: Heart,
       title: "Faça uma Doação",
       description: "Seu apoio financeiro nos ajuda a fornecer serviços vitais para famílias necessitadas.",
       action: "Doe Agora",
+      onClick: handleDoar,
     },
     {
       icon: Users,
@@ -44,8 +55,8 @@ export function GetInvolved() {
   ];
 
   return (
-    <section id="get-involved" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
-      <div className="container mx-auto max-w-7xl">
+    <section id="get-involved" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50 w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl w-full">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Participe</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">
@@ -70,7 +81,11 @@ export function GetInvolved() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={way.onClick || undefined}
+                >
                   {way.action}
                 </Button>
               </CardContent>
@@ -111,7 +126,11 @@ export function GetInvolved() {
                 </div>
                 <p className="text-sm sm:text-base text-gray-600 mt-2">75% da meta alcançada</p>
               </div>
-              <Button size="lg" className="w-full sm:w-fit bg-blue-600 hover:bg-blue-700">
+              <Button 
+                size="lg" 
+                className="w-full sm:w-fit bg-blue-600 hover:bg-blue-700"
+                onClick={handleDoar}
+              >
                 <Heart className="mr-2 h-5 w-5" />
                 Apoie Esta Campanha
               </Button>

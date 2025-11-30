@@ -32,8 +32,8 @@ export function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-gray-900 text-white">
-      <div className="container mx-auto max-w-7xl px-6">
+    <footer id="contact" className="bg-gray-900 text-white w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 w-full">
         {/* Newsletter Section */}
         <div className="py-8 sm:py-12 border-b border-gray-800">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">

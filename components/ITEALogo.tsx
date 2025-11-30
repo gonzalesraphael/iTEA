@@ -62,12 +62,13 @@ export function ITEALogo({
 
   const LogoContent = (
     <svg
-      width={width}
-      height={height}
+      width="100%"
+      height="100%"
       viewBox="0 0 500 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      preserveAspectRatio="xMidYMid meet"
     >
       {/* Fundo com gradiente suave */}
       <defs>

@@ -55,7 +55,7 @@ export function DashboardPage({ onNavigate }: DashboardPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 w-full overflow-x-hidden">
       {/* Modal de boas-vindas */}
       {showWelcome && user && (
         <WelcomeModal userName={user.nome} onClose={handleCloseWelcome} />

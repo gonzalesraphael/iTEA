@@ -104,6 +104,66 @@ export function Programs() {
           ),
         };
 
+      case "apoio-educacional":
+        return {
+          title: "Apoio Educacional",
+          content: (
+            <div className="space-y-4 sm:space-y-6 max-h-[60vh] sm:max-h-[70vh] overflow-y-auto pr-2">
+              <div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">O que é</h3>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                  O Apoio Educacional é um conjunto de ações e serviços voltados para garantir que crianças em idade escolar recebam o suporte acadêmico e socioemocional necessário para alcançar seu pleno desenvolvimento. Ele envolve intervenções personalizadas, acompanhamento contínuo e estratégias pedagógicas adaptadas às necessidades individuais de cada aluno, especialmente aqueles que possuem um Plano de Educação Individualizada (PEI).
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Como Funciona</h3>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-3">
+                  O funcionamento do Apoio Educacional ocorre por meio de práticas complementares à rotina escolar, estruturadas para promover o aprendizado significativo e fortalecer habilidades essenciais. Entre as principais ações, destacam-se:
+                </p>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span><strong>Assistência PEI</strong> - Acompanhamento especializado que identifica necessidades específicas da criança, organiza metas educacionais individualizadas e garante a implementação de estratégias pedagógicas alinhadas ao PEI. O foco é adaptar o método de ensino ao ritmo, estilo e competências do aluno.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span><strong>Reforço Escolar</strong> - Atendimento complementar às aulas regulares para reforçar conteúdos, sanar dificuldades de aprendizagem e desenvolver autonomia nos estudos. É realizado de forma lúdica, dinâmica e orientada ao entendimento real dos conteúdos.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span><strong>Grupos de Habilidades Sociais</strong> - Atividades em grupo que desenvolvem habilidades como comunicação, cooperação, resolução de conflitos, empatia e autorregulação emocional. Esses grupos promovem interações positivas e ajudam a criança a se integrar melhor no ambiente escolar e social.</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Benefícios</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span>Melhora do desempenho acadêmico, com maior segurança e compreensão dos conteúdos escolares.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span>Desenvolvimento socioemocional, fortalecendo autoestima, autoconfiança e habilidades de convivência.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span>Maior engajamento escolar, reduzindo frustrações e favorecendo a participação ativa nas atividades.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span>Apoio contínuo às famílias, oferecendo orientação sobre estratégias de estudo e acompanhamento da evolução da criança.</span>
+                  </li>
+                  <li className="flex items-start text-sm sm:text-base text-gray-700">
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                    <span>Inclusão e equidade, garantindo que crianças com necessidades específicas recebam suporte adequado para aprender em igualdade de oportunidades.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ),
+        };
+
       case "servicos-comportamentais":
         return {
           title: "Serviços Comportamentais",
@@ -436,8 +496,8 @@ export function Programs() {
   const modalData = getModalContent(openModal);
 
   return (
-    <section id="programs" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50">
-      <div className="container mx-auto max-w-7xl">
+    <section id="programs" className="py-12 sm:py-20 px-4 sm:px-6 bg-gray-50 w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl w-full">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Nossos Programas</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">

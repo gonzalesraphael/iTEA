@@ -4,21 +4,40 @@ import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 export function Resources() {
+  const handleDownload = (filename: string) => {
+    try {
+      const link = document.createElement("a");
+      link.href = `/${filename}`;
+      link.download = filename;
+      link.target = "_blank";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Erro ao baixar o arquivo:", error);
+      // Fallback: tentar abrir em nova aba
+      window.open(`/${filename}`, "_blank");
+    }
+  };
+
   const guides = [
     {
       title: "Entendendo o Diagnóstico de Autismo",
       description: "Um guia abrangente para pais navegando no processo de diagnóstico",
       type: "Guia PDF",
+      filename: "Compreendendo o Autismo.pdf",
     },
     {
       title: "Kit de Planejamento PEI",
       description: "Recursos e modelos para planejamento educacional eficaz",
       type: "Guia PDF",
+      filename: "Kit de Planejamento PEI.pdf",
     },
     {
       title: "Estratégias de Suporte Sensorial",
       description: "Abordagens práticas para gerenciar desafios sensoriais",
       type: "Guia PDF",
+      filename: "Estratégias de Suporte Sensorial.pdf",
     },
   ];
 
@@ -59,8 +78,8 @@ export function Resources() {
   ];
 
   return (
-    <section id="resources" className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
-      <div className="container mx-auto max-w-7xl">
+    <section id="resources" className="py-12 sm:py-20 px-4 sm:px-6 bg-white w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl w-full">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Recursos</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">
@@ -92,7 +111,11 @@ export function Resources() {
                   <CardContent>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600">{guide.type}</span>
-                      <Button variant="ghost" size="sm">
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => guide.filename && handleDownload(guide.filename)}
+                      >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar
                       </Button>
@@ -184,7 +207,7 @@ export function Resources() {
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Ligar: (11) 1234-5678
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 w-full sm:w-auto">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               Enviar E-mail
             </Button>
           </div>

@@ -44,8 +44,8 @@ export function AppNavigation({ onNavigate, currentPage }: AppNavigationProps) {
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
+    <nav className="bg-white shadow-sm sticky top-0 z-50 w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 w-full">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <ITEALogoCompact

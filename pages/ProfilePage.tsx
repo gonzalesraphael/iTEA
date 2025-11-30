@@ -46,7 +46,7 @@ export function ProfilePage({ onNavigate }: ProfilePageProps) {
   };
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 sm:px-6 py-6 sm:py-10">
+    <div className="container mx-auto max-w-3xl px-4 sm:px-6 py-6 sm:py-10 w-full overflow-x-hidden">
       <h1 className="text-2xl sm:text-3xl text-gray-900 mb-4 sm:mb-6 font-bold">Meu Perfil</h1>
       <form onSubmit={handleSave} className="space-y-4 sm:space-y-6 bg-white rounded-xl border p-4 sm:p-6">
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">

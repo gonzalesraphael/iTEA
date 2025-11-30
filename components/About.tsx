@@ -25,8 +25,8 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 bg-white">
-      <div className="container mx-auto max-w-7xl">
+    <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 bg-white w-full overflow-x-hidden">
+      <div className="container mx-auto max-w-7xl w-full">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-blue-600 tracking-wide uppercase text-sm sm:text-base">Sobre Nós</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-gray-900 mt-4 mb-4 sm:mb-6 font-bold">
